@@ -35,7 +35,7 @@ document
             alert("Login successful");
 
             // Navigate to home
-            window.location.assign("/home.html");
+            window.location.assign("home.html");
         } else {
             alert("Invalid mobile number or PIN");
         }
