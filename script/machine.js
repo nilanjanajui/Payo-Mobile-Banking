@@ -56,12 +56,10 @@ function setBalance(value) {
     balanceElement.innerText = value.toLocaleString();
 }
 
-/**
- * Show only one section, hide others
- */
+
 function showOnly(sectionId) {
     const sections = document.querySelectorAll(
-        "#add-money, #cashout"
+        "#add-money, #cashout, #history"
     );
 
     sections.forEach(section => {
