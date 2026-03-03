@@ -103,106 +103,122 @@
                     <p class="text-sm">Pay Bill</p>
                 </div>
 
-                <div class="card bg-base-100 shadow p-4 text-center opacity-60">
-                    <img src="assets/opt-6.png" alt="Transaction history"
-                        class="w-10 mx-auto mb-2">
-                    <p class="text-sm">History</p>
-                </div>
+                <button onclick="showHistory()"
+                    class="card bg-base-100 shadow hover:shadow-md transition p-4 text-center"
+                    aria-label="Transaction history">
 
-            </div>
-        </section>
-
-        <!-- Add Money -->
-        <section id="add-money" class="w-11/12 mx-auto mt-10 hidden">
-            <h2 class="text-xl font-semibold mb-4">Add Money</h2>
-
-            <div class="card bg-base-100 shadow rounded-2xl">
-                <div class="card-body space-y-3">
-
-                    <label for="add-money-bank" class="sr-only">Select
-                        bank</label>
-                    <select id="add-money-bank"
-                        class="select bg-base-200 rounded-full">
-                        <option disabled selected>Select Bank</option>
-                        <option>DBBL</option>
-                        <option>IBBL</option>
-                        <option>City Bank</option>
-                    </select>
-
-                    <label for="add-money-number" class="sr-only">Bank account
-                        number</label>
-                    <input id="add-money-number"
-                        type="text"
-                        maxlength="11"
-                        class="input bg-base-200 rounded-full"
-                        placeholder="Bank account number">
-
-                    <label for="add-money-amount" class="sr-only">Amount to
-                        add</label>
-                    <input id="add-money-amount"
-                        type="number"
-                        class="input bg-base-200 rounded-full"
-                        placeholder="Amount">
-
-                    <label for="add-money-pin" class="sr-only">4 digit
-                        PIN</label>
-                    <input id="add-money-pin"
-                        type="password"
-                        maxlength="4"
-                        class="input bg-base-200 rounded-full"
-                        placeholder="4 digit PIN">
-
-                    <button id="add-money-btn"
-                        class="btn btn-primary rounded-full mt-2">
-                        Confirm Add Money
-                    </button>
+                    <div
+                        class="card bg-base-100 shadow p-4 text-center opacity-60">
+                        <img src="assets/opt-6.png" alt="Transaction history"
+                            class="w-10 mx-auto mb-2">
+                        <p class="text-sm">History</p>
+                    </div>
 
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Cashout -->
-        <section id="cashout" class="w-11/12 mx-auto mt-10 hidden">
-            <h2 class="text-xl font-semibold mb-4">Cashout</h2>
+            <!-- Add Money -->
+            <section id="add-money" class="w-11/12 mx-auto mt-10 hidden">
+                <h2 class="text-xl font-semibold mb-4">Add Money</h2>
 
-            <div class="card bg-base-100 shadow rounded-2xl">
-                <div class="card-body space-y-3">
+                <div class="card bg-base-100 shadow rounded-2xl">
+                    <div class="card-body space-y-3">
 
-                    <label for="cashout-number" class="sr-only">Agent
-                        number</label>
-                    <input id="cashout-number"
-                        type="text"
-                        maxlength="11"
-                        class="input bg-base-200 rounded-full"
-                        placeholder="Agent number">
+                        <label for="add-money-bank" class="sr-only">Select
+                            bank</label>
+                        <select id="add-money-bank"
+                            class="select bg-base-200 rounded-full">
+                            <option disabled selected>Select Bank</option>
+                            <option>DBBL</option>
+                            <option>IBBL</option>
+                            <option>City Bank</option>
+                        </select>
 
-                    <label for="cashout-amount" class="sr-only">Cashout
-                        amount</label>
-                    <input id="cashout-amount"
-                        type="number"
-                        class="input bg-base-200 rounded-full"
-                        placeholder="Amount">
+                        <label for="add-money-number" class="sr-only">Bank
+                            account
+                            number</label>
+                        <input id="add-money-number"
+                            type="text"
+                            maxlength="11"
+                            class="input bg-base-200 rounded-full"
+                            placeholder="Bank account number">
 
-                    <label for="cashout-pin" class="sr-only">4 digit PIN</label>
-                    <input id="cashout-pin"
-                        type="password"
-                        maxlength="4"
-                        class="input bg-base-200 rounded-full"
-                        placeholder="4 digit PIN">
+                        <label for="add-money-amount" class="sr-only">Amount to
+                            add</label>
+                        <input id="add-money-amount"
+                            type="number"
+                            class="input bg-base-200 rounded-full"
+                            placeholder="Amount">
 
-                    <button id="cashout-btn"
-                        class="btn btn-primary rounded-full mt-2">
-                        Confirm Cashout
-                    </button>
+                        <label for="add-money-pin" class="sr-only">4 digit
+                            PIN</label>
+                        <input id="add-money-pin"
+                            type="password"
+                            maxlength="4"
+                            class="input bg-base-200 rounded-full"
+                            placeholder="4 digit PIN">
 
+                        <button id="add-money-btn"
+                            class="btn btn-primary rounded-full mt-2">
+                            Confirm Add Money
+                        </button>
+
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Scripts -->
-        <script src="script/machine.js"></script>
-        <script src="script/addMoney.js"></script>
-        <script src="script/cashout.js"></script>
+            <!-- Cashout -->
+            <section id="cashout" class="w-11/12 mx-auto mt-10 hidden">
+                <h2 class="text-xl font-semibold mb-4">Cashout</h2>
 
-    </body>
-</html>
+                <div class="card bg-base-100 shadow rounded-2xl">
+                    <div class="card-body space-y-3">
+
+                        <label for="cashout-number" class="sr-only">Agent
+                            number</label>
+                        <input id="cashout-number"
+                            type="text"
+                            maxlength="11"
+                            class="input bg-base-200 rounded-full"
+                            placeholder="Agent number">
+
+                        <label for="cashout-amount" class="sr-only">Cashout
+                            amount</label>
+                        <input id="cashout-amount"
+                            type="number"
+                            class="input bg-base-200 rounded-full"
+                            placeholder="Amount">
+
+                        <label for="cashout-pin" class="sr-only">4 digit
+                            PIN</label>
+                        <input id="cashout-pin"
+                            type="password"
+                            maxlength="4"
+                            class="input bg-base-200 rounded-full"
+                            placeholder="4 digit PIN">
+
+                        <button id="cashout-btn"
+                            class="btn btn-primary rounded-full mt-2">
+                            Confirm Cashout
+                        </button>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transaction History -->
+            <section id="history" class="w-11/12 mx-auto mt-10 hidden">
+                <h2 class="text-xl font-semibold mb-4">Transaction History</h2>
+
+                <div id="history-list" class="space-y-3"></div>
+            </section>
+
+            <!-- Scripts -->
+            <script src="script/machine.js"></script>
+            <script src="script/state.js"></script>
+            <script src="script/history.js"></script>
+            <script src="script/addMoney.js"></script>
+            <script src="script/cashout.js"></script>
+
+        </body>
+    </html>

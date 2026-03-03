@@ -1,18 +1,25 @@
-// state.js (classic script version)
-console.log("State utilities loaded");
+console.log("State management loaded");
 
-// Global transaction array
+// Global transaction store
 window.transactions = [];
 
 /**
- * Add a transaction to history
- * @param {string} type - "Add Money" or "Cashout"
- * @param {number} amount - Transaction amount
+ * Add a transaction to memory
+ * @param {string} type - ADD_MONEY | CASHOUT
+ * @param {number} amount
+ * @param {object} meta - extra info (bank, agent, etc.)
  */
-window.addTransaction = function(type, amount) {
-    window.transactions.push({
+window.addTransaction = function (type, amount, meta = {}) {
+    const transaction = {
+        id: Date.now(), // simple unique id
         type,
         amount,
+        meta,
         date: new Date().toLocaleString()
-    });
+    };
+
+    window.transactions.push(transaction);
+
+    console.log("Transaction added:", transaction);
+    console.table(window.transactions);
 };
