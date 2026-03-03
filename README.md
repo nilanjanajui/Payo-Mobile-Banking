@@ -176,9 +176,13 @@ No frameworks. No backend. No shortcuts.
 ## 🎯 Why This Project Is Portfolio-Ready
 
 ✔ Clean separation of concerns
+
 ✔ Realistic banking flows
+
 ✔ State management without frameworks
+
 ✔ Defensive input validation
+
 ✔ Scalable file structure
 
 This project demonstrates **how the developer thinks**, not just how the UI looks.
