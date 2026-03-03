@@ -1,20 +1,18 @@
-const appState = {
-    isLoggedIn: false,
-    balance: 45000,
-    transactions: []
+// state.js (classic script version)
+console.log("State utilities loaded");
+
+// Global transaction array
+window.transactions = [];
+
+/**
+ * Add a transaction to history
+ * @param {string} type - "Add Money" or "Cashout"
+ * @param {number} amount - Transaction amount
+ */
+window.addTransaction = function(type, amount) {
+    window.transactions.push({
+        type,
+        amount,
+        date: new Date().toLocaleString()
+    });
 };
-
-function loadState() {
-    const saved = localStorage.getItem("payooState");
-    if (saved) Object.assign(appState, JSON.parse(saved));
-}
-
-function saveState() {
-    localStorage.setItem("payooState", JSON.stringify(appState));
-}
-
-function checkAuth() {
-    if (!appState.isLoggedIn) window.location.href = "index.html";
-}
-
-loadState();

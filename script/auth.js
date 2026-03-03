@@ -1,24 +1,29 @@
-console.log("Auth Loaded");
+// auth.js
+import { showToast, shakeCard } from './ui.js';
 
-// Login
-document.getElementById("login-btn")?.addEventListener("click", () => {
-    const number = getValueFromInput("input-number");
-    const pin = getValueFromInput("input-pin");
+export function login(contactNumber, pin) {
+    const card = document.querySelector('.card-body');
 
-    if (!/^\d{11}$/.test(number)) return showToast("Invalid mobile number", "error");
-    if (!/^\d{4}$/.test(pin)) return showToast("PIN must be 4 digits", "error");
+    // Validate inputs
+    if (!/^\d{11}$/.test(contactNumber)) {
+        showToast("Invalid mobile number", "error");
+        shakeCard(card);
+        return false;
+    }
+    if (!/^\d{4}$/.test(pin)) {
+        showToast("PIN must be 4 digits", "error");
+        shakeCard(card);
+        return false;
+    }
 
-    if (number === "01234567890" && pin === "1234") {
-        appState.isLoggedIn = true;
-        saveState();
-        showToast("Login Successful");
-        window.location.href = "home.html";
-    } else showToast("Login Failed", "error");
-});
-
-// Logout
-document.getElementById("logout-btn")?.addEventListener("click", () => {
-    appState.isLoggedIn = false;
-    saveState();
-    window.location.href = "index.html";
-});
+    // Mock credentials
+    if (contactNumber === "01234567890" && pin === "1234") {
+        showToast("Login Successful!");
+        setTimeout(() => window.location.href = "home.html", 700);
+        return true;
+    } else {
+        showToast("Login Failed", "error");
+        shakeCard(card);
+        return false;
+    }
+}

@@ -1,16 +1,20 @@
-function showToast(message, type = "success") {
-    const toast = document.getElementById("toast");
+// ui.js
+export function showToast(message, type="success") {
+    let toast = document.getElementById('toast');
+    if(!toast){
+        toast = document.createElement('div');
+        toast.id = 'toast';
+        toast.className = "fixed bottom-5 left-1/2 -translate-x-1/2 bg-base-100 shadow-lg px-4 py-2 rounded-full text-sm z-50";
+        document.body.appendChild(toast);
+    }
     toast.innerText = message;
-    toast.classList.remove("hidden");
-
-    toast.classList.toggle("text-green-600", type === "success");
-    toast.classList.toggle("text-red-600", type === "error");
-
-    setTimeout(() => toast.classList.add("hidden"), 2500);
+    toast.style.color = type === "error" ? "#dc2626" : "#16a34a";
+    toast.style.display = "block";
+    setTimeout(() => toast.style.display = "none", 2500);
 }
 
-function showOnly(sectionId) {
-    document.querySelectorAll("#add-money, #cashout").forEach(s => s.classList.add("hidden"));
-    const target = document.getElementById(sectionId);
-    if (target) target.classList.remove("hidden");
+export function shakeCard(card) {
+    if(!card) return;
+    card.classList.add('shake');
+    setTimeout(() => card.classList.remove('shake'), 400);
 }
