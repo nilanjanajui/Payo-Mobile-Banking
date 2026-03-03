@@ -198,11 +198,4 @@ This project demonstrates **how the developer thinks**, not just how the UI look
 
 ---
 
-## 👤 Author
-
-**Payoo** – Frontend Mobile Banking Simulation
-Built as a JavaScript architecture & logic showcase.
-
----
-
 > *"I intentionally avoided frameworks to demonstrate how I manage state, validation, and UI updates using pure JavaScript."*
