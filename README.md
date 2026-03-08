@@ -43,7 +43,8 @@ Payoo/
 * Add money from bank
 * Cashout to agent
 * Live balance update
-* Transaction history (in-memory)
+* Transaction history with filter and clear actions
+* Persistent balance + transactions using localStorage
 * Modular JavaScript architecture
 * Mobile-first responsive UI
 
@@ -187,9 +188,8 @@ The focus of this project is not visual effects, but **correct data flow, logic 
 
 ## 🔮 Future Improvements
 
-* Persist transactions using `localStorage`
-* Replace `alert()` with custom toast notifications
-* Add filters to transaction history
+* Add date-range filters to transaction history
+* Export transactions as CSV
 * Backend API integration
 
 ---

@@ -52,15 +52,15 @@ function setBalance(value) {
         return;
     }
 
-    // Optional formatting (45,000)
     balanceElement.innerText = value.toLocaleString();
+
+    if (typeof window.persistState === "function") {
+        window.persistState();
+    }
 }
 
-
 function showOnly(sectionId) {
-    const sections = document.querySelectorAll(
-        "#add-money, #cashout, #history"
-    );
+    const sections = document.querySelectorAll("#add-money, #cashout, #history");
 
     sections.forEach(section => {
         section.classList.add("hidden");
@@ -74,4 +74,27 @@ function showOnly(sectionId) {
     }
 
     target.classList.remove("hidden");
+}
+
+function showToast(message, type = "success") {
+    const toastContainerId = "toast-container";
+    let container = document.getElementById(toastContainerId);
+
+    if (!container) {
+        container = document.createElement("div");
+        container.id = toastContainerId;
+        container.className = "toast toast-top toast-end z-50";
+        document.body.appendChild(container);
+    }
+
+    const alert = document.createElement("div");
+    const statusClass = type === "error" ? "alert-error" : "alert-success";
+    alert.className = `alert ${statusClass}`;
+    alert.innerHTML = `<span>${message}</span>`;
+
+    container.appendChild(alert);
+
+    setTimeout(() => {
+        alert.remove();
+    }, 2200);
 }

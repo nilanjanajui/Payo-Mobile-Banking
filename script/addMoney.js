@@ -3,31 +3,31 @@ document
     .addEventListener("click", function () {
 
         const bank = getValueFromInput("add-money-bank");
-        if (!bank) {
-            alert("Please select a bank");
+        if (!bank || bank === "Select Bank") {
+            showToast("Please select a bank", "error");
             return;
         }
 
         const accountNumber = getValueFromInput("add-money-number");
         if (!/^\d{11}$/.test(accountNumber)) {
-            alert("Account number must be exactly 11 digits");
+            showToast("Account number must be exactly 11 digits", "error");
             return;
         }
 
         const amount = Number(getValueFromInput("add-money-amount"));
         if (isNaN(amount) || amount <= 0) {
-            alert("Please enter a valid amount");
+            showToast("Please enter a valid amount", "error");
             return;
         }
 
         const pin = getValueFromInput("add-money-pin");
         if (!/^\d{4}$/.test(pin)) {
-            alert("PIN must be 4 digits");
+            showToast("PIN must be 4 digits", "error");
             return;
         }
 
         if (pin !== "1234") {
-            alert("Invalid PIN");
+            showToast("Invalid PIN", "error");
             return;
         }
 
@@ -35,10 +35,11 @@ document
         const newBalance = currentBalance + amount;
         setBalance(newBalance);
 
-        // ✅ NEW: log transaction
         addTransaction("ADD_MONEY", amount, { bank });
 
-        alert(`Add Money Successful!
-Bank: ${bank}
-Amount: $${amount}`);
+        document.getElementById("add-money-number").value = "";
+        document.getElementById("add-money-amount").value = "";
+        document.getElementById("add-money-pin").value = "";
+
+        showToast(`Added $${amount} successfully from ${bank}`);
     });

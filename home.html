@@ -106,15 +106,10 @@
                 <button onclick="showHistory()"
                     class="card bg-base-100 shadow hover:shadow-md transition p-4 text-center"
                     aria-label="Transaction history">
-
-                    <div
-                        class="card bg-base-100 shadow p-4 text-center opacity-60">
-                        <img src="assets/opt-6.png" alt="Transaction history"
-                            class="w-10 mx-auto mb-2">
-                        <p class="text-sm">History</p>
-                    </div>
-
-                </div>
+                    <img src="assets/opt-6.png" alt="Transaction history"
+                        class="w-10 mx-auto mb-2">
+                    <p class="text-sm font-medium">History</p>
+                </button>
             </section>
 
             <!-- Add Money -->
@@ -208,7 +203,17 @@
 
             <!-- Transaction History -->
             <section id="history" class="w-11/12 mx-auto mt-10 hidden">
-                <h2 class="text-xl font-semibold mb-4">Transaction History</h2>
+                <div class="flex items-center justify-between gap-3 mb-4">
+                    <h2 class="text-xl font-semibold">Transaction History</h2>
+                    <button id="clear-history-btn" class="btn btn-ghost btn-sm">Clear</button>
+                </div>
+
+                <label for="history-filter" class="sr-only">Filter transactions</label>
+                <select id="history-filter" class="select bg-base-100 rounded-full w-full mb-4">
+                    <option value="ALL" selected>All Transactions</option>
+                    <option value="ADD_MONEY">Add Money</option>
+                    <option value="CASHOUT">Cashout</option>
+                </select>
 
                 <div id="history-list" class="space-y-3"></div>
             </section>
