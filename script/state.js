@@ -1,17 +1,45 @@
 console.log("State management loaded");
 
-// Global transaction store
-window.transactions = [];
+const BALANCE_STORAGE_KEY = "payoo_balance";
+const TRANSACTION_STORAGE_KEY = "payoo_transactions";
 
-/**
- * Add a transaction to memory
- * @param {string} type - ADD_MONEY | CASHOUT
- * @param {number} amount
- * @param {object} meta - extra info (bank, agent, etc.)
- */
+function loadTransactions() {
+    const stored = localStorage.getItem(TRANSACTION_STORAGE_KEY);
+
+    if (!stored) {
+        return [];
+    }
+
+    try {
+        const parsed = JSON.parse(stored);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+        console.error("Failed to parse transactions from localStorage", error);
+        return [];
+    }
+}
+
+function loadBalance() {
+    const stored = localStorage.getItem(BALANCE_STORAGE_KEY);
+
+    if (!stored) {
+        return null;
+    }
+
+    const balance = Number(stored);
+    return Number.isFinite(balance) && balance >= 0 ? balance : null;
+}
+
+window.persistState = function () {
+    localStorage.setItem(TRANSACTION_STORAGE_KEY, JSON.stringify(window.transactions));
+    localStorage.setItem(BALANCE_STORAGE_KEY, String(getBalance()));
+};
+
+window.transactions = loadTransactions();
+
 window.addTransaction = function (type, amount, meta = {}) {
     const transaction = {
-        id: Date.now(), // simple unique id
+        id: Date.now(),
         type,
         amount,
         meta,
@@ -19,7 +47,19 @@ window.addTransaction = function (type, amount, meta = {}) {
     };
 
     window.transactions.push(transaction);
+    window.persistState();
 
     console.log("Transaction added:", transaction);
-    console.table(window.transactions);
 };
+
+window.clearTransactions = function () {
+    window.transactions = [];
+    window.persistState();
+};
+
+const storedBalance = loadBalance();
+if (storedBalance !== null) {
+    setBalance(storedBalance);
+} else {
+    window.persistState();
+}
