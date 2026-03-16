@@ -1,4 +1,4 @@
-# 📱 Payoo Mobile Banking Web App
+# Payoo Mobile Banking Web App
 
 Payoo is a **frontend-only mobile banking simulation** built with **HTML, Tailwind CSS, DaisyUI, and vanilla JavaScript**.
 The project focuses on **core frontend fundamentals** such as state management, input validation, DOM manipulation, and clean file separation - without using any frameworks or backend services.
@@ -7,7 +7,7 @@ The project focuses on **core frontend fundamentals** such as state management, 
 
 ---
 
-## 📂 Project Folder Structure
+## Project Folder Structure
 
 ```
 Payoo/
@@ -37,7 +37,7 @@ Payoo/
 
 ---
 
-## 🚀 Features
+## Features
 
 * Secure login (demo-based)
 * Add money from bank
@@ -50,7 +50,7 @@ Payoo/
 
 ---
 
-## 🧠 Architecture Overview
+## Architecture Overview
 
 The project follows a **simple layered architecture** using classic `<script>` files:
 
@@ -70,7 +70,7 @@ Each JavaScript file has **one clear responsibility**, making the project easy t
 
 ---
 
-## 🗂 File Responsibilities
+## File Responsibilities
 
 ### `index.html`
 
@@ -136,7 +136,7 @@ Acts as an **in-memory database** similar to how real applications manage state.
 
 ---
 
-## 🧾 Transaction Model
+## Transaction Model
 
 Each transaction is stored in the following format:
 
@@ -154,7 +154,7 @@ This structure mirrors **real-world fintech audit logs**.
 
 ---
 
-## 🔐 Demo Login Credentials
+## Demo Login Credentials
 
 ```
 Mobile Number: 01234567890
@@ -163,7 +163,7 @@ PIN: 1234
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 * HTML5
 * Tailwind CSS
@@ -172,7 +172,7 @@ PIN: 1234
 
 ---
 
-## 💡 What This Project Demonstrates
+## What This Project Demonstrates
 
 This project demonstrates practical frontend engineering skills that are directly applicable to real-world applications:
 
@@ -186,7 +186,7 @@ The focus of this project is not visual effects, but **correct data flow, logic 
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
 * Add date-range filters to transaction history
 * Export transactions as CSV
